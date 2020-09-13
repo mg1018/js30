@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자동완성기능</title>
+    <link rel="stylesheet" href="css/index.css">
+
+</head>
+<body> 
+    <div class="srch_form autocomplete"> 
+        <input id="autoInput" placeholder="Search..."> 
+        <input type="text" class="serch_input">
+
+    </div> 
+    <div id="match-list"></div>
+    <script> 
+        const search = document.getElementById("autoInput");
+        const matchList = document.getElementById('match-list');
+
+        const searchStates = async searchText => {
+            const res = await fetch('../js/states.json');
+            const states = await res.json();
+
+            console.log(states);
+        }
+
+
+
+        search.addEventListener('input' , () => searchStates(search));
+
+        // var myHeaders = new Headers();
+        // myHeaders.append("Ocp-Apim-Subscription-Key", "34e35610f9f84e93a0f4cd796e5122dc");
+
+        // var requestOptions = {
+        // method: 'GET',
+        // headers: myHeaders,
+        // redirect: 'follow'
+        // };
+
+        // fetch("https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=깡&mkt=ko-kr", requestOptions)
+        // .then(response => response.text())
+        // .then(result => console.log(result))
+        // .catch(error => console.log('error', error));
+        // console.table(myHeaders);
+
+
+
+
+        
+    </script> 
+</body>
+
+
+
+</html>
